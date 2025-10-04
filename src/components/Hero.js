@@ -1,23 +1,47 @@
 import React from 'react';
-// Placez votre photo dans src/assets/
-// import profilePic from '../assets/votre-photo.jpg'; 
+import { FaPhone, FaEnvelope, FaLinkedin } from 'react-icons/fa';
+import Typewriter from 'typewriter-effect';
 
 const Hero = () => {
   return (
-    <section id="hero" className="bg-gray-100 min-h-screen flex items-center">
+    <section id="hero" className="bg-gray-50 min-h-screen flex items-center">
       <div className="container mx-auto px-6 flex flex-col md:flex-row items-center justify-between">
         
-        {/* Texte de présentation */}
-        <div className="md:w-1/2 mb-10 md:mb-0 text-center md:text-left">
-          <h1 className="text-4xl md:text-6xl font-bold text-gray-800 mb-4">
+        {/* Colonne de gauche : Texte de présentation */}
+        <div className="md:w-3/5 mb-10 md:mb-0 text-center md:text-left">
+          <h1 className="text-4xl md:text-6xl font-bold text-gray-900 mb-4">
             GHRIB ZAKARIA
           </h1>
-          <p className="text-xl text-indigo-600 font-semibold mb-8">
-            Futur ingénieur en Génie Informatique 
+          
+          {/* Effet machine à écrire */}
+          <div className="text-xl md:text-2xl text-indigo-600 font-semibold mb-6 h-16 md:h-8">
+            <Typewriter
+              options={{
+                strings: ['Futur ingénieur en Génie Informatique', 'Développeur Full-Stack'],
+                autoStart: true,
+                loop: true,
+                delay: 75,
+              }}
+            />
+          </div>
+
+          <p className="text-gray-700 mb-8 max-w-xl">
+            Motivé et proactif, je suis prêt à m'investir dans des projets innovants.
           </p>
-          <p className="text-gray-600 mb-8 max-w-lg">
-            Motivé et proactif, je suis prêt à m'investir dans des projets innovants. 
-          </p>
+
+          {/* Coordonnées */}
+          <div className="flex justify-center md:justify-start space-x-6 mb-8">
+            <a href="tel:0679412403" className="text-gray-600 hover:text-indigo-600 transition duration-300 flex items-center">
+              <FaPhone className="mr-2" /> 0679412403
+            </a>
+            <a href="mailto:zikoghb12@gmail.com" className="text-gray-600 hover:text-indigo-600 transition duration-300 flex items-center">
+              <FaEnvelope className="mr-2" /> zikoghb12@gmail.com
+            </a>
+            <a href="https://www.linkedin.com/in/zakaria-ghrib-164169273" target="_blank" rel="noopener noreferrer" className="text-gray-600 hover:text-indigo-600 transition duration-300 flex items-center">
+              <FaLinkedin className="mr-2" /> LinkedIn
+            </a>
+          </div>
+
           <div className="flex justify-center md:justify-start space-x-4">
             <a href="https://github.com/zakariaghrib" target="_blank" rel="noopener noreferrer" className="bg-indigo-600 text-white font-bold py-3 px-6 rounded-lg hover:bg-indigo-700 transition duration-300 shadow-lg">
               Mon GitHub
@@ -28,15 +52,17 @@ const Hero = () => {
           </div>
         </div>
 
-        {/* Image */}
-        <div className="md:w-1/3">
-          {/* Remplacez 'path/to/your/image.jpg' par le chemin de votre photo */}
-          {/* <img src={profilePic} alt="Zakaria Ghrib" className="rounded-full shadow-2xl mx-auto w-64 h-64 md:w-80 md:h-80 object-cover" /> */}
-          <div className="rounded-full shadow-2xl mx-auto w-64 h-64 md:w-80 md:h-80 bg-gray-300 flex items-center justify-center text-gray-500">
-            Votre Photo Ici
+        {/* Colonne de droite : Image */}
+        <div className="md:w-2/5 flex justify-center">
+          <div className="relative group">
+            <div className="absolute -inset-1 bg-gradient-to-r from-indigo-600 to-purple-600 rounded-full blur-md opacity-50 group-hover:opacity-100 transition duration-1000 group-hover:duration-200 animate-tilt"></div>
+            <img 
+              src="/photo-profil.jpg" 
+              alt="Zakaria Ghrib" 
+              className="relative rounded-full shadow-2xl mx-auto w-64 h-64 md:w-80 md:h-80 object-cover" 
+            />
           </div>
         </div>
-
       </div>
     </section>
   );
