@@ -10,13 +10,13 @@ const Hero = () => {
         {/* Texte de présentation */}
         <div className="md:w-1/2 mb-10 md:mb-0 text-center md:text-left">
           <h1 className="text-4xl md:text-6xl font-bold text-gray-800 mb-4">
-            [cite_start]GHRIB ZAKARIA [cite: 1]
+            GHRIB ZAKARIA
           </h1>
           <p className="text-xl text-indigo-600 font-semibold mb-8">
-            [cite_start]Futur ingénieur en Génie Informatique [cite: 1]
+            Futur ingénieur en Génie Informatique 
           </p>
           <p className="text-gray-600 mb-8 max-w-lg">
-            [cite_start]Motivé et proactif, je suis prêt à m'investir dans des projets innovants. [cite: 5]
+            Motivé et proactif, je suis prêt à m'investir dans des projets innovants. 
           </p>
           <div className="flex justify-center md:justify-start space-x-4">
             <a href="https://github.com/zakariaghrib" target="_blank" rel="noopener noreferrer" className="bg-indigo-600 text-white font-bold py-3 px-6 rounded-lg hover:bg-indigo-700 transition duration-300 shadow-lg">
