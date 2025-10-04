@@ -1,12 +1,21 @@
-// src/App.js
-    function App() {
-      return (
-        <div className="flex justify-center items-center h-screen bg-gray-100">
-          <h1 className="text-4xl font-bold text-blue-600">
-            Hello Tailwind in React!
-          </h1>
-        </div>
-      );
-    }
+import React from 'react';
+import Header from './components/Header';
+import Hero from './components/Hero';
+import './App.css';
 
-    export default App;
+function App() {
+  return (
+    <div className="font-sans text-gray-900">
+      <Header />
+      <main>
+        <Hero />
+        {/* Les autres sections viendront ici */}
+        {/* <About /> */}
+        {/* <Skills /> */}
+        {/* etc. */}
+      </main>
+    </div>
+  );
+}
+
+export default App;
