@@ -3,7 +3,7 @@ import { FaLinkedin, FaGithub } from 'react-icons/fa';
 
 const Footer = () => {
   return (
-    <footer className="bg-gray-800 text-white py-8">
+    <footer className="bg-gray-800 text-white py-8 dark:bg-black">
       <div className="container mx-auto px-6 text-center">
         <div className="flex justify-center space-x-6 mb-4">
           <a href="https://www.linkedin.com/in/zakaria-ghrib-164169273" target="_blank" rel="noopener noreferrer" className="hover:text-indigo-400 transition-colors duration-300">
@@ -13,7 +13,7 @@ const Footer = () => {
             <FaGithub size={28} />
           </a>
         </div>
-        <p>&copy; {new Date().getFullYear()} GHRIB ZAKARIA. Tous droits réservés.</p>
+        <p className="text-gray-400">&copy; {new Date().getFullYear()} GHRIB ZAKARIA</p>
       </div>
     </footer>
   );
