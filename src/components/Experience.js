@@ -1,5 +1,5 @@
 import React from 'react';
-import { FaBriefcase, FaGraduationCap } from 'react-icons/fa';
+import { FaBriefcase, FaGraduationCap, FaCode } from 'react-icons/fa';
 
 const experiences = [
   {
@@ -8,9 +8,21 @@ const experiences = [
     title: "Full-stack Developer",
     company: "Ark-x Talent Solutions",
     description: [
-      "Développement et maintenance d'applications web en React.js et Node.js.",
-      "Gestion du cycle de vie complet du développement.",
-      "Collaboration en équipe pour optimiser la performance."
+      "Géré le cycle de vie complet du développement, de la conception à la mise en production.",
+      "Collaboré en équipe pour résoudre des problèmes techniques et optimiser la performance des applications.",
+      "Technologies: React.js, Node.js, Express.js, MongoDB, Docker, Git, Jest, Swagger"
+    ]
+  },
+  {
+    icon: <FaCode />,
+    date: "Sept 2025",
+    title: "Système de Gestion Scolaire | Projet Full-Stack MERN",
+    company: "Projet Académique (SUPMTI)",
+    description: [
+        "Développement d'une application web complète pour la gestion des notes, étudiants, et classes.",
+        "Implémentation d'un système d'authentification sécurisé avec gestion des rôles (Admin, Enseignant, Étudiant).",
+        "Création d'un système complet de gestion des notes, de la saisie à la génération de bulletins en PDF.",
+        "Technologies: React.js, Node.js, Express, MongoDB, Material-UI, Framer Motion, JWT."
     ]
   }
 ];
@@ -19,9 +31,9 @@ const education = [
     {
       icon: <FaGraduationCap />,
       date: "2023 - en cours",
-      title: "Cycle d'Ingénierie Informatique et Réseaux",
+      title: "Cycle d'ingénieur en systèmes d'information",
       company: "SUPMTI",
-      description: ["Option Génie Informatique."]
+      description: []
     },
     {
         icon: <FaGraduationCap />,
@@ -29,8 +41,8 @@ const education = [
         title: "Technicien Spécialisé en Développement Informatique",
         company: "ESIAM",
         description: []
-      }
-  ];
+    }
+];
 
 const ExperienceItem = ({ item }) => (
     <div className="relative mb-8 pl-16">
@@ -42,7 +54,7 @@ const ExperienceItem = ({ item }) => (
             <p className="mb-1 text-sm font-semibold text-indigo-500">{item.date}</p>
             <h4 className="mb-1.5 text-xl font-bold text-gray-800 dark:text-white">{item.title}</h4>
             <h5 className="mb-3 font-semibold text-gray-600 dark:text-gray-400">{item.company}</h5>
-            <ul className="list-disc list-inside space-y-1 text-gray-700 dark:text-gray-300">
+            <ul className="list-disc list-inside space-y-2 text-gray-700 dark:text-gray-300">
                 {item.description.map((desc, index) => <li key={index}>{desc}</li>)}
             </ul>
         </div>
@@ -59,7 +71,7 @@ const Experience = () => {
         </div>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-16">
             <div>
-                <h3 className="text-2xl font-bold mb-8 text-center md:text-left text-gray-900 dark:text-white">Expérience Professionnelle</h3>
+                <h3 className="text-2xl font-bold mb-8 text-center md:text-left text-gray-900 dark:text-white">Expérience & Projets Clés</h3>
                 {experiences.map((item, index) => <ExperienceItem key={index} item={item} />)}
             </div>
             <div>
