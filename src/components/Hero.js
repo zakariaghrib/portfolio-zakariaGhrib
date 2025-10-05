@@ -1,10 +1,10 @@
 import React from 'react';
-import { FaPhone, FaEnvelope, FaLinkedin } from 'react-icons/fa';
+import { FaPhone, FaEnvelope, FaLinkedin, FaDownload } from 'react-icons/fa'; // Importer l'icône de téléchargement
 import Typewriter from 'typewriter-effect';
 
 const Hero = () => {
   return (
-    <section id="hero" className="bg-gray-50 dark:bg-gray-900 min-h-screen flex items-center">
+    <section id="hero" className="bg-gray-50 dark:bg-gray-900 min-h-screen flex items-center transition-colors duration-500">
       <div className="container mx-auto px-6 flex flex-col md:flex-row items-center justify-between">
         <div className="md:w-3/5 mb-10 md:mb-0 text-center md:text-left">
           <h1 className="text-4xl md:text-6xl font-bold text-gray-900 dark:text-white mb-4">
@@ -34,14 +34,25 @@ const Hero = () => {
               <FaLinkedin className="mr-2" /> LinkedIn
             </a>
           </div>
-          <div className="flex justify-center md:justify-start space-x-4">
+
+          {/* ---- MODIFICATION ICI ---- */}
+          <div className="flex flex-wrap justify-center md:justify-start gap-4">
             <a href="https://github.com/zakariaghrib" target="_blank" rel="noopener noreferrer" className="bg-indigo-600 text-white font-bold py-3 px-6 rounded-lg hover:bg-indigo-700 transition duration-300 shadow-lg">
               Mon GitHub
             </a>
-            <a href="#contact" className="bg-white text-indigo-600 font-bold py-3 px-6 rounded-lg hover:bg-gray-200 transition duration-300 border border-indigo-600 shadow-lg">
+            {/* ---- BOUTON DE TÉLÉCHARGEMENT AJOUTÉ ---- */}
+            <a 
+              href="/GHRIB-ZAKARIA-CV-1.pdf" 
+              download="GHRIB-ZAKARIA-CV.pdf"
+              className="bg-white text-indigo-600 font-bold py-3 px-6 rounded-lg hover:bg-gray-200 transition duration-300 border border-indigo-600 shadow-lg dark:bg-gray-700 dark:text-white dark:hover:bg-gray-600 flex items-center"
+            >
+              <FaDownload className="mr-2" /> Télécharger CV
+            </a>
+            <a href="#contact" className="bg-gray-700 text-white font-bold py-3 px-6 rounded-lg hover:bg-gray-800 transition duration-300 shadow-lg dark:bg-gray-600 dark:hover:bg-gray-500">
               Me Contacter
             </a>
           </div>
+
         </div>
         <div className="md:w-2/5 flex justify-center">
           <div className="relative group">
