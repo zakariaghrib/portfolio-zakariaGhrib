@@ -1,37 +1,57 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
+import ThemeToggle from './ThemeToggle';
+import { HiMenu, HiX } from 'react-icons/hi';
 
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
 
-  const navLinks = ['À propos', 'Compétences', 'Expérience', 'Formation', 'Contact'];
+  const navLinks = [
+    { name: 'À propos', path: '/#à-propos' },
+    { name: 'Compétences', path: '/#compétences' },
+    { name: 'Expérience', path: '/#expérience' },
+    { name: 'Projets', path: '/projects' },
+    { name: 'Contact', path: '/#contact' },
+  ];
 
   return (
-    <header className="bg-white shadow-md fixed w-full top-0 z-10">
+    <header className="bg-white shadow-md fixed w-full top-0 z-50 dark:bg-gray-800 dark:border-b dark:border-gray-700">
       <div className="container mx-auto px-6 py-4 flex justify-between items-center">
-        <div className="text-xl font-bold text-gray-800">GHRIB ZAKARIA</div>
+        <Link to="/" className="text-xl font-bold text-gray-800 dark:text-white">
+          GHRIB ZAKARIA
+        </Link>
         
         {/* Navigation pour écrans larges */}
-        <nav className="hidden md:flex space-x-8">
+        <nav className="hidden md:flex items-center space-x-8">
           {navLinks.map(link => (
-            <a href={`#${link.toLowerCase()}`} className="text-gray-600 hover:text-indigo-600 transition duration-300">{link}</a>
+            <Link key={link.name} to={link.path} className="text-gray-600 dark:text-gray-300 hover:text-indigo-600 dark:hover:text-indigo-400 transition duration-300">
+              {link.name}
+            </Link>
           ))}
+          <ThemeToggle />
         </nav>
 
-        {/* Bouton pour menu mobile */}
-        <div className="md:hidden">
-          <button onClick={() => setIsOpen(!isOpen)} className="text-gray-800 focus:outline-none">
-            <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d={!isOpen ? "M4 6h16M4 12h16m-7 6h7" : "M6 18L18 6M6 6l12 12"}></path>
-            </svg>
+        {/* Boutons pour mobile */}
+        <div className="md:hidden flex items-center space-x-4">
+          <ThemeToggle />
+          <button onClick={() => setIsOpen(!isOpen)} className="text-gray-800 dark:text-gray-200 focus:outline-none">
+            {isOpen ? <HiX size={24} /> : <HiMenu size={24} />}
           </button>
         </div>
       </div>
 
-      {/* Menu mobile */}
+      {/* Menu mobile déroulant */}
       {isOpen && (
-        <nav className="md:hidden bg-white px-6 pb-4">
+        <nav className="md:hidden bg-white dark:bg-gray-800 px-6 pb-4 border-t border-gray-200 dark:border-gray-700">
           {navLinks.map(link => (
-            <a href={`#${link.toLowerCase()}`} className="block py-2 text-gray-600 hover:text-indigo-600 transition duration-300">{link}</a>
+            <Link 
+              key={link.name} 
+              to={link.path} 
+              onClick={() => setIsOpen(false)}
+              className="block py-2 text-gray-600 dark:text-gray-300 hover:text-indigo-600 dark:hover:text-indigo-400 transition duration-300"
+            >
+              {link.name}
+            </Link>
           ))}
         </nav>
       )}
